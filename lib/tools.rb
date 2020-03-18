@@ -71,4 +71,19 @@ module Tools
       return false if !@str.scan(/[!$&#-]/).empty? || @str.include?(':')
     end
   end
+
+  class Raindrops
+    def initialize(int)
+      @int = int
+    end
+
+    def song
+      str = ''
+      str += 'Pling' if (@int % 3).zero?
+      str += 'Plang' if (@int % 5).zero?
+      str += 'Plong' if (@int % 7).zero?
+
+      return str.empty? ? @int.to_s : str
+    end
+  end
 end
