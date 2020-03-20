@@ -63,12 +63,14 @@ module Tools
     def sumall
       sum_all.sum
     end
+    
 
     def valid_checks
       return false if @str.length <= 1
-      return false if @str.chars.any? { |char| ('a'..'z').include? char.downcase }
       return false if @str.length == 2 && @str[0] == ' ' && @str[1] == '0'
       return false if !@str.scan(/[!$&#-]/).empty? || @str.include?(':')
+      return false if rev_arr.any? { |char| ('a'..'z').include?(char) }
+
     end
   end
 
@@ -83,7 +85,7 @@ module Tools
       str += 'Plang' if (@int % 5).zero?
       str += 'Plong' if (@int % 7).zero?
 
-      return str.empty? ? @int.to_s : str
+      str.empty? ? @int.to_s : str
     end
   end
 end
