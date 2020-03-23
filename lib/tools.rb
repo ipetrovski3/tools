@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'tools/version'
+require 'raindrops'
+require 'isogram'
 
 module Tools
   class Luhn
@@ -10,7 +12,6 @@ module Tools
 
     def valid?
       return false if valid_checks == false
-      return false if (sumall % 10).zero? == false
 
       true
     end
@@ -63,29 +64,15 @@ module Tools
     def sumall
       sum_all.sum
     end
-    
+
+    def divided_by_ten
+      (sumall % 10).zero?
+    end
 
     def valid_checks
-      return false if @str.length <= 1
-      return false if @str.length == 2 && @str[0] == ' ' && @str[1] == '0'
-      return false if !@str.scan(/[!$&#-]/).empty? || @str.include?(':')
-      return false if rev_arr.any? { |char| ('a'..'z').include?(char) }
-
-    end
-  end
-
-  class Raindrops
-    def initialize(int)
-      @int = int
-    end
-
-    def song
-      str = ''
-      str += 'Pling' if (@int % 3).zero?
-      str += 'Plang' if (@int % 5).zero?
-      str += 'Plong' if (@int % 7).zero?
-
-      str.empty? ? @int.to_s : str
+      return false if rev_arr.length <= 1
+      return false unless @str.scan(/[!,$,&,#,-,:,a..z]/).empty?
+      return false unless divided_by_ten == true
     end
   end
 end
