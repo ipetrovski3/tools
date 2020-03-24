@@ -71,11 +71,6 @@ RSpec.describe Tools::Luhn do
     expect(luhn.valid?).to be true
   end
 
-  it 'input digit 9 is correctly converted to output digit 9' do
-    luhn = Tools::Luhn.new('091')
-    expect(luhn.valid?).to be true
-  end
-
   it "doesn't allow strings with non digits" do
     luhn = Tools::Luhn.new(':9')
     expect(luhn.valid?).to be false

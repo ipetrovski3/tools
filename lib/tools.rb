@@ -8,7 +8,7 @@ require 'armstrong'
 module Tools
   class Luhn
     def initialize(str)
-      @str = str
+      @striped = str.delete(' ')
     end
 
     def valid?
@@ -19,34 +19,24 @@ module Tools
 
     private
 
-    def striped
-      @str.delete(' ')
-    end
-
     def rev_arr
-      striped.reverse.chars
+      @striped.reverse.chars
     end
 
     def every_first_array
-      efa = (0..rev_arr.size - 1).step(2)
-      efa.map { |i| rev_arr[i] }
+      indexes.map { |i| rev_arr[i].to_i }
     end
 
     def every_second_array
-      esa = (1..rev_arr.size - 1).step(2)
-      esa.map { |i| rev_arr[i] }
+      indexes(1).map { |i| rev_arr[i].to_i }
     end
 
-    def str_to_int1
-      every_first_array.map(&:to_i)
-    end
-
-    def str_to_int2
-      every_second_array.map(&:to_i)
+    def indexes(ind = 0)
+      (ind..@striped.size - 1).step(2)
     end
 
     def multi
-      str_to_int2.map { |i| rule(i) }
+      every_second_array.map { |i| rule(i) }
     end
 
     def rule(num)
@@ -59,20 +49,15 @@ module Tools
     end
 
     def sum_all
-      str_to_int1 + multi
-    end
-
-    def sumall
-      sum_all.sum
+      (every_first_array + multi).sum
     end
 
     def divided_by_ten
-      (sumall % 10).zero?
+      (sum_all % 10).zero?
     end
 
     def valid_checks
-      return false if rev_arr.length <= 1
-      return false unless @str.scan(/[!,$,&,#,-,:,a..z]/).empty?
+      return false if rev_arr.length <= 1 || /\D/.match?(@striped)
       return false unless divided_by_ten == true
     end
   end
