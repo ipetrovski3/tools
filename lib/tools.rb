@@ -3,6 +3,7 @@
 require 'tools/version'
 require 'raindrops'
 require 'isogram'
+require 'armstrong'
 
 module Tools
   class Luhn
