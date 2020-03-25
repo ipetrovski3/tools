@@ -4,6 +4,7 @@ require 'tools/version'
 require 'raindrops'
 require 'isogram'
 require 'armstrong'
+require 'acronyms'
 
 module Tools
   class Luhn
