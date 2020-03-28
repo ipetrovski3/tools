@@ -5,6 +5,7 @@ require 'raindrops'
 require 'isogram'
 require 'armstrong'
 require 'acronyms'
+require 'allergies'
 
 module Tools
   class Luhn
