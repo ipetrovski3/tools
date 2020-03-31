@@ -6,6 +6,8 @@ require 'isogram'
 require 'armstrong'
 require 'acronyms'
 require 'allergies'
+require 'robot'
+require 'resistors'
 
 module Tools
   class Luhn
