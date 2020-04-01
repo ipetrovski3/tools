@@ -1,33 +1,33 @@
 # frozen_string_literal: true
 
-RSpec.describe Isogram do
+RSpec.describe Tools::Isogram do
   it 'checks if a single letter is used multiple times' do
-    phrase = Isogram.new('letter')
+    phrase = Tools::Isogram.new('letter')
     expect(phrase.letter_count).to be > 1
   end
 
   it 'checks if its isogram, Ex: lumberjacks' do
-    phrase = Isogram.new('lumberjacks')
+    phrase = Tools::Isogram.new('lumberjacks')
     expect(phrase.isogram_check).to eq('Isogram')
   end
 
   it 'checks if its isogram, Ex: background' do
-    phrase = Isogram.new('background')
+    phrase = Tools::Isogram.new('background')
     expect(phrase.isogram_check).to eq('Isogram')
   end
 
   it 'checks if its isogram, Ex: six-year-old' do
-    phrase = Isogram.new('six-year-old')
+    phrase = Tools::Isogram.new('six-year-old')
     expect(phrase.isogram_check).to eq('Isogram')
   end
 
   it 'checks if its isogram, Ex: downstream' do
-    phrase = Isogram.new('downstream')
+    phrase = Tools::Isogram.new('downstream')
     expect(phrase.isogram_check).to eq('Isogram')
   end
 
   it 'checks if its isogram, Ex: isograms' do
-    phrase = Isogram.new('isograms')
+    phrase = Tools::Isogram.new('isograms')
     expect(phrase.isogram_check).to eq('Not Isogram')
   end
 end

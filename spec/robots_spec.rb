@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-RSpec.describe Robot do
+RSpec.describe Tools::Robot do
   skip
 end
