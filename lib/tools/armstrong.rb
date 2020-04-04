@@ -5,9 +5,7 @@ module Tools
     end
 
     def check_armstrong
-      return true if sum_all == @int
-
-      false
+      sum_all == @int
     end
 
     def integer_to_array

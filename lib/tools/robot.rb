@@ -31,6 +31,5 @@ module Tools
     def find_duplicates
       @list.select { |d| @list.count(d) > 1 }
     end
-
   end
 end
