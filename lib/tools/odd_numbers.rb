@@ -33,7 +33,5 @@ module Tools
     def count_the_odds
       odd_integers_to_hash.select { |_, v| v.odd? }.keys
     end
-
-
   end
 end
