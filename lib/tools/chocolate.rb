@@ -6,9 +6,7 @@ module Tools
     end
 
     def fairness?
-      return true if first_person == second_person
-
-      false
+      first_person == second_person
     end
 
     private
