@@ -7,17 +7,22 @@ module Tools
 
     def fairness?
       return true if first_person == second_person
+
+      false
     end
 
     private
 
-    # tuka pravam sprotivno od DRY.....
     def first_person
-      @eater_one.map { |a, b| a * b }.sum
+      pieces_eaten(@eater_one)
     end
 
     def second_person
-      @eater_two.map { |a, b| a * b }.sum
+      pieces_eaten(@eater_two)
+    end
+
+    def pieces_eaten(eater)
+      eater.map { |a, b| a * b }.sum
     end
   end
 end
