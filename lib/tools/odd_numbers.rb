@@ -1,7 +1,7 @@
 module Tools
   class OddNumbers
     def initialize(num)
-      @num = num.sort
+      @num = num
     end
 
     def first_odd_integer
@@ -19,7 +19,7 @@ module Tools
     private
 
     def first_odd
-      odd_integers.first
+      count_the_odds.first
     end
 
     def odd_integers
