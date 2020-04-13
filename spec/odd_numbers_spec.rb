@@ -10,4 +10,16 @@ RSpec.describe Tools::OddNumbers do
     expected = [-1, 5]
     expect(numbers.odds_counter).to eq(expected)
   end
+
+  it 'will return the input array in integer if array size is one element' do
+    numbers = Tools::OddNumbers.new([10])
+    expected = 10
+    expect(numbers.first_odd_integer).to eq(expected)
+  end
+
+  it 'will return the input array if array size is one element' do
+    numbers = Tools::OddNumbers.new([10])
+    expected = [10]
+    expect(numbers.odds_counter).to eq(expected)
+  end
 end
