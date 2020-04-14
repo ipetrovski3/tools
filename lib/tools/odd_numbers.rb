@@ -1,19 +1,19 @@
 module Tools
   class OddNumbers
-    def initialize(num)
-      @num = num
+    def initialize(arr)
+      @arr = arr
     end
 
     def first_odd_integer
-      if @num.count < 2
-        @num.join.to_i
+      if @arr.count < 2
+        @arr.first
       else
         first_odd
       end
     end
 
     def odds_counter
-      count_the_odds.size < 2 ? @num : count_the_odds
+      count_the_odds.size < 2 ? @arr : count_the_odds
     end
 
     private
@@ -22,16 +22,12 @@ module Tools
       count_the_odds.first
     end
 
-    def odd_integers
-      @num.select(&:odd?)
-    end
-
-    def odd_integers_to_hash
-      odd_integers.tally
+    def array_to_hash
+      @arr.tally
     end
 
     def count_the_odds
-      odd_integers_to_hash.select { |_, v| v.odd? }.keys
+      array_to_hash.select { |_, v| v.odd? }.keys
     end
   end
 end
