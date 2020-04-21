@@ -13,4 +13,6 @@ require 'tools/antipodes'
 require 'tools/odd_numbers'
 require 'tools/chocolate'
 require 'tools/time'
+require 'tools/pokemon'
+
 

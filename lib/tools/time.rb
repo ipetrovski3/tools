@@ -1,4 +1,3 @@
-require 'time'
 module Tools
   class TimeAdjust
     LIMITHOURS = 24
@@ -33,7 +32,6 @@ module Tools
     end
 
     def minutes
-      # seconds
       minn = time_to_int[1] + @min
       while minn >= LIMITMINSEC
         minn = (minn - LIMITMINSEC)
@@ -43,7 +41,6 @@ module Tools
     end
 
     def hours
-      # minutes
       hrsn = time_to_int[0] + @hrs
       while hrsn >= LIMITHOURS
         hrsn = (hrsn - LIMITHOURS)
